@@ -21,7 +21,7 @@
 # To create kaggle account visit https://www.kaggle.com
 
 
-# Installation of following packages is required to run reproduce results.
+# Installation of following packages is required to reproduce results.
 # install.packages("lubridate")
 
 
@@ -30,7 +30,8 @@ library(lubridate)
 
 
 # Reading dataset from local system
-laptopRaw <- read.csv("laptops.csv")
-
-
+laptopRaw <- read.csv("laptops.csv") 
+laptopRaw <- laptopRaw[,-1]
+str(laptopRaw)
+strsplit(laptopRaw$Ram, "GB")
 
