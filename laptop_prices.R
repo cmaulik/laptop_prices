@@ -12,9 +12,6 @@
 # language       R                           
 # version.string R version 3.4.3 (2017-11-30)
 
-# Github Push
-# git remote add origin https://github.com/cmaulik/laptop_prices.git
-# git push -u origin master
 
 # Database Access date and time 
 # [1] "2018-04-03 11:51:22 AEST" # Accessed using lubridate package
