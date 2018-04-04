@@ -1,8 +1,7 @@
-# version
+# Version
 # platform       x86_64-apple-darwin15.6.0   
 # arch           x86_64                      
 # os             darwin15.6.0                
-# system         x86_64, darwin15.6.0        
 # status                                     
 # major          3                           
 # minor          4.3                         
@@ -13,15 +12,24 @@
 # language       R                           
 # version.string R version 3.4.3 (2017-11-30)
 
+# Github Push
+# git remote add origin https://github.com/cmaulik/laptop_prices.git
+# git push -u origin master
+
 # Database Access date and time 
 # [1] "2018-04-03 11:51:22 AEST" # Accessed using lubridate package
-# url : "https://www.kaggle.com/ionaskel/laptop-prices/downloads/laptops.csv/2"
-
+# url : "https://www.kaggle.com/ionaskel/laptop-prices/downloads/laptops.csv"
+# to download dataset, create account on kaggle and copy paste the above mentioned url to download the 
+# required dataset
+# To create kaggle account visit https://www.kaggle.com
 
 
 # Installation of following packages is required to run reproduce results.
 # install.packages("lubridate")
 
+
 # Loading packages
 library(lubridate)
 
+# Reading dataset from local system
+laptopRaw <- read.csv("laptops.csv")
