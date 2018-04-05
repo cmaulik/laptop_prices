@@ -23,15 +23,32 @@
 
 # Installation of following packages is required to reproduce results.
 # install.packages("lubridate")
-
+# install.packages("ggplot2")
+# install.packages("dplyr)
 
 # Loading packages
 library(lubridate)
-
+library(ggplot2)
+library(dplyr)
 
 # Reading dataset from local system
 laptopRaw <- read.csv("laptops.csv") 
-laptopRaw <- laptopRaw[,-1]
+
+# Converting dataset into proper format.
 str(laptopRaw)
-strsplit(laptopRaw$Ram, "GB")
+laptopRaw <- laptopRaw[,-1] # Removing 1st column
+laptopRaw$Ram <- as.numeric(strsplit(as.character(laptopRaw$Ram), "GB")) # converting factor variable to numeric
+laptopRaw$Weight <- as.numeric(strsplit(as.character(laptopRaw$Weight), "kg")) # converting factor variable to numeric
+
+laptopArrangedDesc <-  laptopRaw %>% arrange(desc(Price_euros)) %>% arrange(desc(Ram)) %>% arrange(desc(Inches)) %>% arrange(Weight)
+
+budget <- function(price, Ram){
+        if(missing(Ram)){ laptopArrangedDesc[laptopArrangedDesc$Price_euros <= price,]} else
+        laptopArrangedDesc[laptopArrangedDesc$Price_euros <= price | laptopArrangedDesc$Ram >= Ram,]
+
+}
+
+
+
+a <- budget(700, 4)
 
